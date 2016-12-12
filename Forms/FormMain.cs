@@ -84,7 +84,7 @@ namespace VKTest
             var t = (BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle);
             if (t == null)
                 return;
-            string s = t.SendRequest("https://vk.com/");
+            t.UpdateAccountInfo();
         }
     }
 }

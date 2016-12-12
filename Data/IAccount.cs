@@ -26,7 +26,7 @@ namespace VKTest.Data
         /// При успешной авторизации заполнены
         /// </summary>
         [Display(AutoGenerateField = false)]
-        Dictionary<string, string> cookie { get; set; }
+        // Dictionary<string, string> cookie { get; set; }
         #endregion
         #region SettingsForConnection
         /// <summary>

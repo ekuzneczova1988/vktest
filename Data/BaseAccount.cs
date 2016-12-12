@@ -41,7 +41,20 @@ namespace VKTest.Data
             }
         }
         List<string> _blackList = new List<string>();
-        public Dictionary<string, string> cookie
+        //public Dictionary<string, string> cookie
+        //{
+        //    get
+        //    {
+        //        return _cookie;
+        //    }
+
+        //    set
+        //    {
+        //        _cookie = value;
+        //    }
+        //}
+        //Dictionary<string, string> _cookie = new Dictionary<string, string>();
+        public List<string> cookie
         {
             get
             {
@@ -53,7 +66,7 @@ namespace VKTest.Data
                 _cookie = value;
             }
         }
-        Dictionary<string, string> _cookie = new Dictionary<string, string>();
+        List<string> _cookie = new List<string>();
         public DateTime countersLimitDate
         {
             get
@@ -222,7 +235,10 @@ namespace VKTest.Data
         {
             throw new NotImplementedException();
         }
-
+        public virtual bool UpdateAccountInfo()
+        {
+            throw new NotImplementedException();
+        }
         public int CheckMessage()
         {
             throw new NotImplementedException();
@@ -339,12 +355,30 @@ namespace VKTest.Data
             string result = "";
             using (var get = new HttpRequest())
             {
-                get.Cookies = (CookieDictionary)cookie;
+                get.Cookies = GetCookies();
                 get.UserAgent = userAgent;
-                HttpResponse resp = get.Post(req);
+                var resp = get.Post(req).ToString();
                 result = resp.ToString();//.Substring("<!json>", "-->");
             }
             return result;
+        }
+        public CookieDictionary GetCookies()
+        {
+            CookieDictionary cd = new CookieDictionary();
+            foreach(var i in _cookie)
+            {
+                cd.Add(i.Split('=')[0], i.Split('=')[1]);
+            }
+            return cd;
+        }
+        public void SetCookie(CookieDictionary cd)
+        {
+            _cookie.Clear();
+            foreach(var i in cd)
+            {
+                string t = i.Key + "=" + i.Value;
+                _cookie.Add(t);
+            }
         }
         private static string CleanFileName(string fileName)
         {
