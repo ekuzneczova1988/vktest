@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraSplashScreen;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,12 +68,12 @@ namespace VKTest
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            splashScreenManagerMain.ShowWaitForm();
+            SplashScreenManager.ShowForm(typeof(WaitFormMain));
             foreach (var account in accounts)
             {
                 account.Save(account);
             }
-            splashScreenManagerMain.CloseWaitForm();
+            SplashScreenManager.CloseForm(false);
         }
 
         private void simpleButtonDell_Click(object sender, EventArgs e)

@@ -129,7 +129,7 @@ namespace VKTest.Data
         public override bool UpdateAccountInfo()
         {
             long CurrentTimestamp = (long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds;
-            string s = SendRequest($"https://vk.com/al_im.php?act=a_get_fast_chat&al=1&cache_time={CurrentTimestamp}");
+            string s = SendRequest($"https://vk.com/al_im.php?act=a_get_fast_chat&al=1");// &cache_time={CurrentTimestamp}
             var rq = processVkResponse(s);
             foreach(var str in rq)
             {

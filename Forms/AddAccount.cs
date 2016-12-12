@@ -47,7 +47,11 @@ namespace VKTest
                 if (imageComboBoxEditSoc.SelectedItem.ToString() == "VK.COM")
                 {
                     type = new VKAccount(login, pass, proxy, ua);
-                    type.Auth();
+                    if (type.Auth())
+                    {
+                        SplashScreenManager.Default.SetWaitFormDescription($"Обновляем основные данные {login} ...");
+                        type.UpdateAccountInfo();
+                    }
                 }
                 if (type == null)
                     continue;

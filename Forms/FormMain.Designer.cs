@@ -36,18 +36,6 @@
             this.xtraTabPageAccounts = new DevExpress.XtraTab.XtraTabPage();
             this.gridControlAccounts = new DevExpress.XtraGrid.GridControl();
             this.baseAccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridViewAccounts = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colavatar = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.collogin = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpass = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcookie = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colproxy = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coluserAgent = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.collink = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colnickName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltask = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colenabled = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcountersLimitDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPageMessaging = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPageEvents = new DevExpress.XtraTab.XtraTabPage();
             this.simpleButtonAddAccount = new DevExpress.XtraEditors.SimpleButton();
@@ -55,7 +43,21 @@
             this.simpleButtonIdea = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonPlay = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonStop = new DevExpress.XtraEditors.SimpleButton();
-            this.splashScreenManagerMain = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::VKTest.Forms.WaitFormMain), true, true);
+            this.gridViewAccounts = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.colavatar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.collogin = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colpass = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colcookie = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colproxy = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.coluserAgent = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.collink = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colnickName = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.coltask = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colenabled = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colcountersLimitDate = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colstatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBandMain = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMain)).BeginInit();
             this.xtraTabControlMain.SuspendLayout();
             this.xtraTabPageAccounts.SuspendLayout();
@@ -72,7 +74,7 @@
             this.xtraTabControlMain.Location = new System.Drawing.Point(0, 90);
             this.xtraTabControlMain.Name = "xtraTabControlMain";
             this.xtraTabControlMain.SelectedTabPage = this.xtraTabPageAccounts;
-            this.xtraTabControlMain.Size = new System.Drawing.Size(627, 235);
+            this.xtraTabControlMain.Size = new System.Drawing.Size(627, 357);
             this.xtraTabControlMain.TabIndex = 0;
             this.xtraTabControlMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageAccounts,
@@ -84,7 +86,7 @@
             this.xtraTabPageAccounts.Controls.Add(this.gridControlAccounts);
             this.xtraTabPageAccounts.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPageAccounts.Image")));
             this.xtraTabPageAccounts.Name = "xtraTabPageAccounts";
-            this.xtraTabPageAccounts.Size = new System.Drawing.Size(621, 204);
+            this.xtraTabPageAccounts.Size = new System.Drawing.Size(621, 326);
             this.xtraTabPageAccounts.Text = "Анкеты";
             // 
             // gridControlAccounts
@@ -99,7 +101,7 @@
             this.gridControlAccounts.Location = new System.Drawing.Point(0, 0);
             this.gridControlAccounts.MainView = this.gridViewAccounts;
             this.gridControlAccounts.Name = "gridControlAccounts";
-            this.gridControlAccounts.Size = new System.Drawing.Size(621, 204);
+            this.gridControlAccounts.Size = new System.Drawing.Size(621, 326);
             this.gridControlAccounts.TabIndex = 0;
             this.gridControlAccounts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAccounts});
@@ -107,86 +109,6 @@
             // baseAccountBindingSource
             // 
             this.baseAccountBindingSource.DataSource = typeof(VKTest.Data.BaseAccount);
-            // 
-            // gridViewAccounts
-            // 
-            this.gridViewAccounts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colavatar,
-            this.collogin,
-            this.colpass,
-            this.colcookie,
-            this.colproxy,
-            this.coluserAgent,
-            this.collink,
-            this.colnickName,
-            this.coltask,
-            this.colenabled,
-            this.colcountersLimitDate});
-            this.gridViewAccounts.GridControl = this.gridControlAccounts;
-            this.gridViewAccounts.Name = "gridViewAccounts";
-            // 
-            // colavatar
-            // 
-            this.colavatar.FieldName = "avatar";
-            this.colavatar.Name = "colavatar";
-            this.colavatar.Visible = true;
-            this.colavatar.VisibleIndex = 0;
-            // 
-            // collogin
-            // 
-            this.collogin.FieldName = "login";
-            this.collogin.Name = "collogin";
-            // 
-            // colpass
-            // 
-            this.colpass.FieldName = "pass";
-            this.colpass.Name = "colpass";
-            // 
-            // colcookie
-            // 
-            this.colcookie.FieldName = "cookie";
-            this.colcookie.Name = "colcookie";
-            // 
-            // colproxy
-            // 
-            this.colproxy.FieldName = "proxy";
-            this.colproxy.Name = "colproxy";
-            // 
-            // coluserAgent
-            // 
-            this.coluserAgent.FieldName = "userAgent";
-            this.coluserAgent.Name = "coluserAgent";
-            // 
-            // collink
-            // 
-            this.collink.FieldName = "link";
-            this.collink.Name = "collink";
-            this.collink.Visible = true;
-            this.collink.VisibleIndex = 1;
-            // 
-            // colnickName
-            // 
-            this.colnickName.FieldName = "nickName";
-            this.colnickName.Name = "colnickName";
-            this.colnickName.Visible = true;
-            this.colnickName.VisibleIndex = 2;
-            // 
-            // coltask
-            // 
-            this.coltask.FieldName = "task";
-            this.coltask.Name = "coltask";
-            // 
-            // colenabled
-            // 
-            this.colenabled.FieldName = "enabled";
-            this.colenabled.Name = "colenabled";
-            this.colenabled.Visible = true;
-            this.colenabled.VisibleIndex = 3;
-            // 
-            // colcountersLimitDate
-            // 
-            this.colcountersLimitDate.FieldName = "countersLimitDate";
-            this.colcountersLimitDate.Name = "colcountersLimitDate";
             // 
             // xtraTabPageMessaging
             // 
@@ -262,15 +184,142 @@
             this.simpleButtonStop.Text = "Остановить\r\nвсе";
             this.simpleButtonStop.ToolTip = "Добавить новую анкету для работы";
             // 
-            // splashScreenManagerMain
+            // gridViewAccounts
             // 
-            this.splashScreenManagerMain.ClosingDelay = 500;
+            this.gridViewAccounts.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand1,
+            this.gridBandMain});
+            this.gridViewAccounts.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.colavatar,
+            this.collogin,
+            this.colpass,
+            this.colcookie,
+            this.colproxy,
+            this.coluserAgent,
+            this.collink,
+            this.colnickName,
+            this.coltask,
+            this.colenabled,
+            this.colcountersLimitDate,
+            this.colstatus});
+            this.gridViewAccounts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridViewAccounts.GridControl = this.gridControlAccounts;
+            this.gridViewAccounts.Name = "gridViewAccounts";
+            this.gridViewAccounts.OptionsView.ShowColumnHeaders = false;
+            this.gridViewAccounts.RowHeight = 2;
+            // 
+            // colavatar
+            // 
+            this.colavatar.Caption = "Аватар";
+            this.colavatar.FieldName = "avatar";
+            this.colavatar.Name = "colavatar";
+            this.colavatar.OptionsColumn.AllowEdit = false;
+            this.colavatar.OptionsColumn.AllowMove = false;
+            this.colavatar.OptionsColumn.AllowSize = false;
+            this.colavatar.OptionsColumn.FixedWidth = true;
+            this.colavatar.Visible = true;
+            this.colavatar.Width = 70;
+            // 
+            // collogin
+            // 
+            this.collogin.FieldName = "login";
+            this.collogin.Name = "collogin";
+            // 
+            // colpass
+            // 
+            this.colpass.FieldName = "pass";
+            this.colpass.Name = "colpass";
+            // 
+            // colcookie
+            // 
+            this.colcookie.FieldName = "cookie";
+            this.colcookie.Name = "colcookie";
+            // 
+            // colproxy
+            // 
+            this.colproxy.FieldName = "proxy";
+            this.colproxy.Name = "colproxy";
+            // 
+            // coluserAgent
+            // 
+            this.coluserAgent.FieldName = "userAgent";
+            this.coluserAgent.Name = "coluserAgent";
+            // 
+            // collink
+            // 
+            this.collink.Caption = "Ссылка";
+            this.collink.FieldName = "link";
+            this.collink.Name = "collink";
+            this.collink.Visible = true;
+            this.collink.Width = 183;
+            // 
+            // colnickName
+            // 
+            this.colnickName.Caption = "Имя";
+            this.colnickName.FieldName = "nickName";
+            this.colnickName.Name = "colnickName";
+            this.colnickName.Visible = true;
+            this.colnickName.Width = 320;
+            // 
+            // coltask
+            // 
+            this.coltask.FieldName = "task";
+            this.coltask.Name = "coltask";
+            // 
+            // colenabled
+            // 
+            this.colenabled.Caption = "Вкл";
+            this.colenabled.FieldName = "enabled";
+            this.colenabled.Name = "colenabled";
+            this.colenabled.OptionsColumn.FixedWidth = true;
+            this.colenabled.Visible = true;
+            this.colenabled.Width = 30;
+            // 
+            // colcountersLimitDate
+            // 
+            this.colcountersLimitDate.FieldName = "countersLimitDate";
+            this.colcountersLimitDate.Name = "colcountersLimitDate";
+            // 
+            // colstatus
+            // 
+            this.colstatus.Caption = "Статус";
+            this.colstatus.FieldName = "status";
+            this.colstatus.Name = "colstatus";
+            this.colstatus.RowIndex = 1;
+            this.colstatus.Visible = true;
+            this.colstatus.Width = 603;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Аватар";
+            this.gridBand1.Columns.Add(this.colavatar);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.OptionsBand.FixedWidth = true;
+            this.gridBand1.VisibleIndex = 0;
+            // 
+            // gridBandMain
+            // 
+            this.gridBandMain.Caption = "Аккаунты";
+            this.gridBandMain.Columns.Add(this.collogin);
+            this.gridBandMain.Columns.Add(this.colpass);
+            this.gridBandMain.Columns.Add(this.colcookie);
+            this.gridBandMain.Columns.Add(this.colproxy);
+            this.gridBandMain.Columns.Add(this.coluserAgent);
+            this.gridBandMain.Columns.Add(this.collink);
+            this.gridBandMain.Columns.Add(this.colnickName);
+            this.gridBandMain.Columns.Add(this.coltask);
+            this.gridBandMain.Columns.Add(this.colenabled);
+            this.gridBandMain.Columns.Add(this.colcountersLimitDate);
+            this.gridBandMain.Columns.Add(this.colstatus);
+            this.gridBandMain.Name = "gridBandMain";
+            this.gridBandMain.VisibleIndex = 1;
+            this.gridBandMain.Width = 603;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 325);
+            this.ClientSize = new System.Drawing.Size(627, 447);
             this.Controls.Add(this.simpleButtonStop);
             this.Controls.Add(this.simpleButtonPlay);
             this.Controls.Add(this.simpleButtonIdea);
@@ -300,25 +349,28 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPageMessaging;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageEvents;
         private DevExpress.XtraGrid.GridControl gridControlAccounts;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewAccounts;
-        private DevExpress.XtraGrid.Columns.GridColumn collogin;
-        private DevExpress.XtraGrid.Columns.GridColumn colpass;
-        private DevExpress.XtraGrid.Columns.GridColumn colcookie;
-        private DevExpress.XtraGrid.Columns.GridColumn colproxy;
-        private DevExpress.XtraGrid.Columns.GridColumn coluserAgent;
-        private DevExpress.XtraGrid.Columns.GridColumn collink;
-        private DevExpress.XtraGrid.Columns.GridColumn colnickName;
-        private DevExpress.XtraGrid.Columns.GridColumn colavatar;
-        private DevExpress.XtraGrid.Columns.GridColumn coltask;
-        private DevExpress.XtraGrid.Columns.GridColumn colenabled;
-        private DevExpress.XtraGrid.Columns.GridColumn colcountersLimitDate;
         private DevExpress.XtraEditors.SimpleButton simpleButtonAddAccount;
         private DevExpress.XtraEditors.SimpleButton simpleButtonDell;
         private DevExpress.XtraEditors.SimpleButton simpleButtonIdea;
         private DevExpress.XtraEditors.SimpleButton simpleButtonPlay;
         private DevExpress.XtraEditors.SimpleButton simpleButtonStop;
-        private System.Windows.Forms.BindingSource baseAccountBindingSource;
         public DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManagerMain;
+        private System.Windows.Forms.BindingSource baseAccountBindingSource;
+        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gridViewAccounts;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colavatar;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn collogin;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colpass;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colcookie;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colproxy;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coluserAgent;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn collink;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colnickName;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coltask;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colenabled;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colcountersLimitDate;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colstatus;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandMain;
     }
 }
 
