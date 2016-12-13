@@ -29,22 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageAccounts = new DevExpress.XtraTab.XtraTabPage();
             this.gridControlAccounts = new DevExpress.XtraGrid.GridControl();
             this.baseAccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.xtraTabPageMessaging = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPageEvents = new DevExpress.XtraTab.XtraTabPage();
-            this.simpleButtonAddAccount = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonDell = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonIdea = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonPlay = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonStop = new DevExpress.XtraEditors.SimpleButton();
             this.gridViewAccounts = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colavatar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.gridBandMain = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.collogin = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colpass = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colcookie = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -52,18 +49,31 @@
             this.coluserAgent = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.collink = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colnickName = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colButtonSetTask = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.buttonSetTask = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.coltask = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colenabled = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colcountersLimitDate = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colstatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBandMain = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+            this.xtraTabPageMessaging = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPageEvents = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButtonAddAccount = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonDell = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonIdea = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonPlay = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonStop = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMain)).BeginInit();
             this.xtraTabControlMain.SuspendLayout();
             this.xtraTabPageAccounts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baseAccountBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewAccounts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonSetTask)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControlMain
@@ -101,6 +111,11 @@
             this.gridControlAccounts.Location = new System.Drawing.Point(0, 0);
             this.gridControlAccounts.MainView = this.gridViewAccounts;
             this.gridControlAccounts.Name = "gridControlAccounts";
+            this.gridControlAccounts.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemImageEdit1,
+            this.repositoryItemPictureEdit1,
+            this.repositoryItemCheckEdit1,
+            this.buttonSetTask});
             this.gridControlAccounts.Size = new System.Drawing.Size(621, 326);
             this.gridControlAccounts.TabIndex = 0;
             this.gridControlAccounts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -110,18 +125,205 @@
             // 
             this.baseAccountBindingSource.DataSource = typeof(VKTest.Data.BaseAccount);
             // 
+            // gridViewAccounts
+            // 
+            this.gridViewAccounts.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand1,
+            this.gridBandMain});
+            this.gridViewAccounts.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.colavatar,
+            this.collogin,
+            this.colpass,
+            this.colcookie,
+            this.colproxy,
+            this.coluserAgent,
+            this.collink,
+            this.colnickName,
+            this.coltask,
+            this.colenabled,
+            this.colcountersLimitDate,
+            this.colstatus,
+            this.colButtonSetTask});
+            this.gridViewAccounts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridViewAccounts.GridControl = this.gridControlAccounts;
+            this.gridViewAccounts.Name = "gridViewAccounts";
+            this.gridViewAccounts.OptionsView.ColumnAutoWidth = true;
+            this.gridViewAccounts.OptionsView.ShowColumnHeaders = false;
+            this.gridViewAccounts.OptionsView.ShowDetailButtons = false;
+            this.gridViewAccounts.RowHeight = 2;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Аватар";
+            this.gridBand1.Columns.Add(this.colavatar);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.OptionsBand.FixedWidth = true;
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 45;
+            // 
+            // colavatar
+            // 
+            this.colavatar.AutoFillDown = true;
+            this.colavatar.Caption = "Аватар";
+            this.colavatar.ColumnEdit = this.repositoryItemPictureEdit1;
+            this.colavatar.FieldName = "avatar";
+            this.colavatar.Name = "colavatar";
+            this.colavatar.OptionsColumn.AllowEdit = false;
+            this.colavatar.OptionsColumn.AllowMove = false;
+            this.colavatar.OptionsColumn.AllowSize = false;
+            this.colavatar.OptionsColumn.FixedWidth = true;
+            this.colavatar.Visible = true;
+            this.colavatar.Width = 45;
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            this.repositoryItemPictureEdit1.PictureAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.repositoryItemPictureEdit1.ReadOnly = true;
+            this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.repositoryItemPictureEdit1.ZoomAccelerationFactor = 1D;
+            // 
+            // gridBandMain
+            // 
+            this.gridBandMain.Caption = "Аккаунты";
+            this.gridBandMain.Columns.Add(this.collogin);
+            this.gridBandMain.Columns.Add(this.colpass);
+            this.gridBandMain.Columns.Add(this.colcookie);
+            this.gridBandMain.Columns.Add(this.colproxy);
+            this.gridBandMain.Columns.Add(this.coluserAgent);
+            this.gridBandMain.Columns.Add(this.collink);
+            this.gridBandMain.Columns.Add(this.colnickName);
+            this.gridBandMain.Columns.Add(this.colButtonSetTask);
+            this.gridBandMain.Columns.Add(this.coltask);
+            this.gridBandMain.Columns.Add(this.colenabled);
+            this.gridBandMain.Columns.Add(this.colcountersLimitDate);
+            this.gridBandMain.Columns.Add(this.colstatus);
+            this.gridBandMain.Name = "gridBandMain";
+            this.gridBandMain.VisibleIndex = 1;
+            this.gridBandMain.Width = 558;
+            // 
+            // collogin
+            // 
+            this.collogin.FieldName = "login";
+            this.collogin.Name = "collogin";
+            // 
+            // colpass
+            // 
+            this.colpass.FieldName = "pass";
+            this.colpass.Name = "colpass";
+            // 
+            // colcookie
+            // 
+            this.colcookie.FieldName = "cookie";
+            this.colcookie.Name = "colcookie";
+            // 
+            // colproxy
+            // 
+            this.colproxy.FieldName = "proxy";
+            this.colproxy.Name = "colproxy";
+            // 
+            // coluserAgent
+            // 
+            this.coluserAgent.FieldName = "userAgent";
+            this.coluserAgent.Name = "coluserAgent";
+            // 
+            // collink
+            // 
+            this.collink.Caption = "Ссылка";
+            this.collink.FieldName = "link";
+            this.collink.Name = "collink";
+            this.collink.OptionsColumn.FixedWidth = true;
+            this.collink.OptionsColumn.ReadOnly = true;
+            this.collink.Visible = true;
+            this.collink.Width = 150;
+            // 
+            // colnickName
+            // 
+            this.colnickName.Caption = "Имя";
+            this.colnickName.FieldName = "nickName";
+            this.colnickName.Name = "colnickName";
+            this.colnickName.OptionsColumn.AllowEdit = false;
+            this.colnickName.OptionsColumn.ReadOnly = true;
+            this.colnickName.Visible = true;
+            this.colnickName.Width = 258;
+            // 
+            // colButtonSetTask
+            // 
+            this.colButtonSetTask.Caption = "Настроить задания";
+            this.colButtonSetTask.ColumnEdit = this.buttonSetTask;
+            this.colButtonSetTask.Name = "colButtonSetTask";
+            this.colButtonSetTask.OptionsColumn.FixedWidth = true;
+            this.colButtonSetTask.Visible = true;
+            this.colButtonSetTask.Width = 120;
+            // 
+            // buttonSetTask
+            // 
+            this.buttonSetTask.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Наcтроить задания", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleLeft, ((System.Drawing.Image)(resources.GetObject("buttonSetTask.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.buttonSetTask.Name = "buttonSetTask";
+            this.buttonSetTask.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // coltask
+            // 
+            this.coltask.FieldName = "task";
+            this.coltask.Name = "coltask";
+            // 
+            // colenabled
+            // 
+            this.colenabled.Caption = "Вкл";
+            this.colenabled.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.colenabled.FieldName = "enabled";
+            this.colenabled.Name = "colenabled";
+            this.colenabled.OptionsColumn.FixedWidth = true;
+            this.colenabled.ToolTip = "Активация заданий";
+            this.colenabled.Visible = true;
+            this.colenabled.Width = 30;
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.UserDefined;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            this.repositoryItemCheckEdit1.PictureChecked = ((System.Drawing.Image)(resources.GetObject("repositoryItemCheckEdit1.PictureChecked")));
+            this.repositoryItemCheckEdit1.PictureUnchecked = ((System.Drawing.Image)(resources.GetObject("repositoryItemCheckEdit1.PictureUnchecked")));
+            // 
+            // colcountersLimitDate
+            // 
+            this.colcountersLimitDate.FieldName = "countersLimitDate";
+            this.colcountersLimitDate.Name = "colcountersLimitDate";
+            // 
+            // colstatus
+            // 
+            this.colstatus.Caption = "Статус";
+            this.colstatus.FieldName = "status";
+            this.colstatus.Name = "colstatus";
+            this.colstatus.OptionsColumn.AllowEdit = false;
+            this.colstatus.OptionsColumn.ReadOnly = true;
+            this.colstatus.RowIndex = 1;
+            this.colstatus.Visible = true;
+            this.colstatus.Width = 558;
+            // 
+            // repositoryItemImageEdit1
+            // 
+            this.repositoryItemImageEdit1.AutoHeight = false;
+            this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
+            this.repositoryItemImageEdit1.PictureAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.repositoryItemImageEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
             // xtraTabPageMessaging
             // 
             this.xtraTabPageMessaging.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPageMessaging.Image")));
             this.xtraTabPageMessaging.Name = "xtraTabPageMessaging";
-            this.xtraTabPageMessaging.Size = new System.Drawing.Size(621, 204);
+            this.xtraTabPageMessaging.Size = new System.Drawing.Size(621, 326);
             this.xtraTabPageMessaging.Text = "Сообщения";
             // 
             // xtraTabPageEvents
             // 
             this.xtraTabPageEvents.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPageEvents.Image")));
             this.xtraTabPageEvents.Name = "xtraTabPageEvents";
-            this.xtraTabPageEvents.Size = new System.Drawing.Size(621, 204);
+            this.xtraTabPageEvents.Size = new System.Drawing.Size(621, 326);
             this.xtraTabPageEvents.Text = "События";
             // 
             // simpleButtonAddAccount
@@ -184,137 +386,6 @@
             this.simpleButtonStop.Text = "Остановить\r\nвсе";
             this.simpleButtonStop.ToolTip = "Добавить новую анкету для работы";
             // 
-            // gridViewAccounts
-            // 
-            this.gridViewAccounts.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand1,
-            this.gridBandMain});
-            this.gridViewAccounts.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.colavatar,
-            this.collogin,
-            this.colpass,
-            this.colcookie,
-            this.colproxy,
-            this.coluserAgent,
-            this.collink,
-            this.colnickName,
-            this.coltask,
-            this.colenabled,
-            this.colcountersLimitDate,
-            this.colstatus});
-            this.gridViewAccounts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
-            this.gridViewAccounts.GridControl = this.gridControlAccounts;
-            this.gridViewAccounts.Name = "gridViewAccounts";
-            this.gridViewAccounts.OptionsView.ShowColumnHeaders = false;
-            this.gridViewAccounts.RowHeight = 2;
-            // 
-            // colavatar
-            // 
-            this.colavatar.Caption = "Аватар";
-            this.colavatar.FieldName = "avatar";
-            this.colavatar.Name = "colavatar";
-            this.colavatar.OptionsColumn.AllowEdit = false;
-            this.colavatar.OptionsColumn.AllowMove = false;
-            this.colavatar.OptionsColumn.AllowSize = false;
-            this.colavatar.OptionsColumn.FixedWidth = true;
-            this.colavatar.Visible = true;
-            this.colavatar.Width = 70;
-            // 
-            // collogin
-            // 
-            this.collogin.FieldName = "login";
-            this.collogin.Name = "collogin";
-            // 
-            // colpass
-            // 
-            this.colpass.FieldName = "pass";
-            this.colpass.Name = "colpass";
-            // 
-            // colcookie
-            // 
-            this.colcookie.FieldName = "cookie";
-            this.colcookie.Name = "colcookie";
-            // 
-            // colproxy
-            // 
-            this.colproxy.FieldName = "proxy";
-            this.colproxy.Name = "colproxy";
-            // 
-            // coluserAgent
-            // 
-            this.coluserAgent.FieldName = "userAgent";
-            this.coluserAgent.Name = "coluserAgent";
-            // 
-            // collink
-            // 
-            this.collink.Caption = "Ссылка";
-            this.collink.FieldName = "link";
-            this.collink.Name = "collink";
-            this.collink.Visible = true;
-            this.collink.Width = 183;
-            // 
-            // colnickName
-            // 
-            this.colnickName.Caption = "Имя";
-            this.colnickName.FieldName = "nickName";
-            this.colnickName.Name = "colnickName";
-            this.colnickName.Visible = true;
-            this.colnickName.Width = 320;
-            // 
-            // coltask
-            // 
-            this.coltask.FieldName = "task";
-            this.coltask.Name = "coltask";
-            // 
-            // colenabled
-            // 
-            this.colenabled.Caption = "Вкл";
-            this.colenabled.FieldName = "enabled";
-            this.colenabled.Name = "colenabled";
-            this.colenabled.OptionsColumn.FixedWidth = true;
-            this.colenabled.Visible = true;
-            this.colenabled.Width = 30;
-            // 
-            // colcountersLimitDate
-            // 
-            this.colcountersLimitDate.FieldName = "countersLimitDate";
-            this.colcountersLimitDate.Name = "colcountersLimitDate";
-            // 
-            // colstatus
-            // 
-            this.colstatus.Caption = "Статус";
-            this.colstatus.FieldName = "status";
-            this.colstatus.Name = "colstatus";
-            this.colstatus.RowIndex = 1;
-            this.colstatus.Visible = true;
-            this.colstatus.Width = 603;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Аватар";
-            this.gridBand1.Columns.Add(this.colavatar);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.OptionsBand.FixedWidth = true;
-            this.gridBand1.VisibleIndex = 0;
-            // 
-            // gridBandMain
-            // 
-            this.gridBandMain.Caption = "Аккаунты";
-            this.gridBandMain.Columns.Add(this.collogin);
-            this.gridBandMain.Columns.Add(this.colpass);
-            this.gridBandMain.Columns.Add(this.colcookie);
-            this.gridBandMain.Columns.Add(this.colproxy);
-            this.gridBandMain.Columns.Add(this.coluserAgent);
-            this.gridBandMain.Columns.Add(this.collink);
-            this.gridBandMain.Columns.Add(this.colnickName);
-            this.gridBandMain.Columns.Add(this.coltask);
-            this.gridBandMain.Columns.Add(this.colenabled);
-            this.gridBandMain.Columns.Add(this.colcountersLimitDate);
-            this.gridBandMain.Columns.Add(this.colstatus);
-            this.gridBandMain.Name = "gridBandMain";
-            this.gridBandMain.VisibleIndex = 1;
-            this.gridBandMain.Width = 603;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,6 +409,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlAccounts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.baseAccountBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewAccounts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonSetTask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,6 +444,11 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colenabled;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colcountersLimitDate;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colstatus;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colButtonSetTask;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit buttonSetTask;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandMain;
     }
