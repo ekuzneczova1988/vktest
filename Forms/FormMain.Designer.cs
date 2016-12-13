@@ -62,12 +62,29 @@
             this.colcountersLimitDate = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.xtraTabPageMessaging = new DevExpress.XtraTab.XtraTabPage();
+            this.gridControlMessages = new DevExpress.XtraGrid.GridControl();
+            this.gridViewMessages = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridControlDialogs = new DevExpress.XtraGrid.GridControl();
+            this.dialogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridViewDialogs = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.collinkToAvatar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colfromNickName = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colonline = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.colfromId = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.collinkToProfile = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colisFriend = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.colsecuenceNumber = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.xtraTabPageEvents = new DevExpress.XtraTab.XtraTabPage();
             this.simpleButtonAddAccount = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonDell = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonIdea = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonPlay = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonStop = new DevExpress.XtraEditors.SimpleButton();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             colstatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMain)).BeginInit();
@@ -80,6 +97,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonSetTask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
+            this.xtraTabPageMessaging.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlMessages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewMessages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDialogs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dialogBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDialogs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
             this.SuspendLayout();
             // 
             // colstatus
@@ -182,6 +207,7 @@
             this.gridViewAccounts.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.gridViewAccounts.OptionsView.ShowGroupPanel = false;
             this.gridViewAccounts.OptionsView.ShowIndicator = false;
+            this.gridViewAccounts.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewAccounts_FocusedRowChanged);
             // 
             // gridBand1
             // 
@@ -347,10 +373,155 @@
             // 
             // xtraTabPageMessaging
             // 
+            this.xtraTabPageMessaging.Controls.Add(this.gridControlMessages);
+            this.xtraTabPageMessaging.Controls.Add(this.gridControlDialogs);
             this.xtraTabPageMessaging.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPageMessaging.Image")));
             this.xtraTabPageMessaging.Name = "xtraTabPageMessaging";
             this.xtraTabPageMessaging.Size = new System.Drawing.Size(628, 320);
             this.xtraTabPageMessaging.Text = "Сообщения";
+            // 
+            // gridControlMessages
+            // 
+            this.gridControlMessages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlMessages.Location = new System.Drawing.Point(245, 0);
+            this.gridControlMessages.MainView = this.gridViewMessages;
+            this.gridControlMessages.Name = "gridControlMessages";
+            this.gridControlMessages.Size = new System.Drawing.Size(383, 278);
+            this.gridControlMessages.TabIndex = 1;
+            this.gridControlMessages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewMessages});
+            // 
+            // gridViewMessages
+            // 
+            this.gridViewMessages.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand3});
+            this.gridViewMessages.GridControl = this.gridControlMessages;
+            this.gridViewMessages.Name = "gridViewMessages";
+            this.gridViewMessages.OptionsView.ShowGroupPanel = false;
+            this.gridViewMessages.OptionsView.ShowIndicator = false;
+            // 
+            // gridBand3
+            // 
+            this.gridBand3.Caption = "gridBand3";
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.VisibleIndex = 0;
+            // 
+            // gridControlDialogs
+            // 
+            this.gridControlDialogs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gridControlDialogs.DataSource = this.dialogBindingSource;
+            this.gridControlDialogs.Location = new System.Drawing.Point(0, 0);
+            this.gridControlDialogs.MainView = this.gridViewDialogs;
+            this.gridControlDialogs.Name = "gridControlDialogs";
+            this.gridControlDialogs.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit2,
+            this.repositoryItemCheckEdit3});
+            this.gridControlDialogs.Size = new System.Drawing.Size(245, 320);
+            this.gridControlDialogs.TabIndex = 0;
+            this.gridControlDialogs.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewDialogs});
+            // 
+            // dialogBindingSource
+            // 
+            this.dialogBindingSource.DataSource = typeof(VKTest.Data.Dialog);
+            // 
+            // gridViewDialogs
+            // 
+            this.gridViewDialogs.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand4,
+            this.gridBand2});
+            this.gridViewDialogs.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.colfromId,
+            this.colfromNickName,
+            this.collinkToAvatar,
+            this.collinkToProfile,
+            this.colonline,
+            this.colisFriend,
+            this.colsecuenceNumber});
+            this.gridViewDialogs.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridViewDialogs.GridControl = this.gridControlDialogs;
+            this.gridViewDialogs.Name = "gridViewDialogs";
+            this.gridViewDialogs.OptionsBehavior.Editable = false;
+            this.gridViewDialogs.OptionsView.ColumnAutoWidth = true;
+            this.gridViewDialogs.OptionsView.ShowBands = false;
+            this.gridViewDialogs.OptionsView.ShowColumnHeaders = false;
+            this.gridViewDialogs.OptionsView.ShowGroupPanel = false;
+            this.gridViewDialogs.OptionsView.ShowIndicator = false;
+            // 
+            // collinkToAvatar
+            // 
+            this.collinkToAvatar.FieldName = "linkToAvatar";
+            this.collinkToAvatar.Name = "collinkToAvatar";
+            this.collinkToAvatar.Width = 34;
+            // 
+            // colfromNickName
+            // 
+            this.colfromNickName.FieldName = "fromNickName";
+            this.colfromNickName.Name = "colfromNickName";
+            this.colfromNickName.Visible = true;
+            this.colfromNickName.Width = 170;
+            // 
+            // colonline
+            // 
+            this.colonline.ColumnEdit = this.repositoryItemCheckEdit2;
+            this.colonline.FieldName = "online";
+            this.colonline.Name = "colonline";
+            this.colonline.OptionsColumn.FixedWidth = true;
+            this.colonline.Visible = true;
+            this.colonline.Width = 20;
+            // 
+            // repositoryItemCheckEdit2
+            // 
+            this.repositoryItemCheckEdit2.AutoHeight = false;
+            this.repositoryItemCheckEdit2.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.UserDefined;
+            this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
+            this.repositoryItemCheckEdit2.PictureChecked = ((System.Drawing.Image)(resources.GetObject("repositoryItemCheckEdit2.PictureChecked")));
+            this.repositoryItemCheckEdit2.PictureGrayed = ((System.Drawing.Image)(resources.GetObject("repositoryItemCheckEdit2.PictureGrayed")));
+            this.repositoryItemCheckEdit2.PictureUnchecked = ((System.Drawing.Image)(resources.GetObject("repositoryItemCheckEdit2.PictureUnchecked")));
+            this.repositoryItemCheckEdit2.ReadOnly = true;
+            // 
+            // colfromId
+            // 
+            this.colfromId.FieldName = "fromId";
+            this.colfromId.Name = "colfromId";
+            this.colfromId.RowIndex = 1;
+            // 
+            // collinkToProfile
+            // 
+            this.collinkToProfile.FieldName = "linkToProfile";
+            this.collinkToProfile.Name = "collinkToProfile";
+            this.collinkToProfile.RowIndex = 1;
+            this.collinkToProfile.Visible = true;
+            this.collinkToProfile.Width = 170;
+            // 
+            // colisFriend
+            // 
+            this.colisFriend.ColumnEdit = this.repositoryItemCheckEdit3;
+            this.colisFriend.FieldName = "isFriend";
+            this.colisFriend.Name = "colisFriend";
+            this.colisFriend.OptionsColumn.FixedWidth = true;
+            this.colisFriend.RowIndex = 1;
+            this.colisFriend.Visible = true;
+            this.colisFriend.Width = 20;
+            // 
+            // repositoryItemCheckEdit3
+            // 
+            this.repositoryItemCheckEdit3.AutoHeight = false;
+            this.repositoryItemCheckEdit3.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.UserDefined;
+            this.repositoryItemCheckEdit3.Name = "repositoryItemCheckEdit3";
+            this.repositoryItemCheckEdit3.PictureChecked = ((System.Drawing.Image)(resources.GetObject("repositoryItemCheckEdit3.PictureChecked")));
+            this.repositoryItemCheckEdit3.PictureGrayed = ((System.Drawing.Image)(resources.GetObject("repositoryItemCheckEdit3.PictureGrayed")));
+            this.repositoryItemCheckEdit3.PictureUnchecked = ((System.Drawing.Image)(resources.GetObject("repositoryItemCheckEdit3.PictureUnchecked")));
+            // 
+            // colsecuenceNumber
+            // 
+            this.colsecuenceNumber.FieldName = "secuenceNumber";
+            this.colsecuenceNumber.Name = "colsecuenceNumber";
+            this.colsecuenceNumber.RowIndex = 1;
+            this.colsecuenceNumber.Width = 41;
             // 
             // xtraTabPageEvents
             // 
@@ -419,6 +590,28 @@
             this.simpleButtonStop.Text = "Остановить\r\nвсе";
             this.simpleButtonStop.ToolTip = "Добавить новую анкету для работы";
             // 
+            // gridBand4
+            // 
+            this.gridBand4.Caption = "gridBand4";
+            this.gridBand4.Columns.Add(this.collinkToAvatar);
+            this.gridBand4.Name = "gridBand4";
+            this.gridBand4.Visible = false;
+            this.gridBand4.VisibleIndex = -1;
+            this.gridBand4.Width = 34;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.Caption = "gridBand2";
+            this.gridBand2.Columns.Add(this.colfromNickName);
+            this.gridBand2.Columns.Add(this.colonline);
+            this.gridBand2.Columns.Add(this.colfromId);
+            this.gridBand2.Columns.Add(this.collinkToProfile);
+            this.gridBand2.Columns.Add(this.colisFriend);
+            this.gridBand2.Columns.Add(this.colsecuenceNumber);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.VisibleIndex = 0;
+            this.gridBand2.Width = 190;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,6 +640,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonSetTask)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
+            this.xtraTabPageMessaging.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlMessages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewMessages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDialogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dialogBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDialogs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -485,6 +686,23 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandMain;
+        private DevExpress.XtraGrid.GridControl gridControlMessages;
+        private DevExpress.XtraGrid.GridControl gridControlDialogs;
+        private System.Windows.Forms.BindingSource dialogBindingSource;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
+        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gridViewMessages;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
+        private DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView gridViewDialogs;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn collinkToAvatar;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colfromNickName;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colonline;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colfromId;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn collinkToProfile;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colisFriend;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit3;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colsecuenceNumber;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
     }
 }
 

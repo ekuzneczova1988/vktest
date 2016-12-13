@@ -98,7 +98,7 @@ namespace VKTest
             var t = (BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle);
             if (t == null)
                 return;
-            t.GetDialogs();
+            t.GetDialog(((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle)).fromId);
         }
 
         private void buttonSetTask_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -106,6 +106,12 @@ namespace VKTest
             var item = (BaseAccount)gridViewAccounts.GetFocusedRow();
             item.SetStatus("настраивали задание");
             gridControlAccounts.RefreshDataSource();
+        }
+
+        private void gridViewAccounts_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs.
+                OrderByDescending(o=>o.secuenceNumber);
         }
     }
 }

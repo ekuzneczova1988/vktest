@@ -12,23 +12,27 @@ namespace VKTest.Data
         /// <summary>
         /// id сообщения
         /// </summary>
-        string id { get; set; }
+        public int id { get; set; }
+        /// <summary>
+        /// id пользователя написавшего сообщение
+        /// </summary>
+        public int idContact { get; set; }
         /// <summary>
         /// Дата
         /// </summary>
-        DateTime date { get; set; }
-        bool opened { get; set; }
+        public DateTime date { get; set; }
+        public bool opened { get; set; }
         /// <summary>
         /// Входящее если true
         /// </summary>
-        bool incoming { get; set; }
+        public bool incoming { get; set; }
         /// <summary>
         /// Сообщение
         /// </summary>
-        string msg { get; set; }
+        public string msg { get; set; }
         /// <summary>
         /// Картинки и тд
         /// </summary>
-        string media { get; set; }
+        public string media { get; set; }
     }
 }

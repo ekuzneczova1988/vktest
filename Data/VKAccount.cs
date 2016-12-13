@@ -263,10 +263,11 @@ namespace VKTest.Data
             {
                 try
                 {
-                    Dialog dialog = new Dialog();
+
                     JArray jArray = JArray.Parse(str);
                     foreach (var item in jArray)
                     {
+                        Dialog dialog = new Dialog();
                         if (item.Count() >= 6)
                         {
                             dialog.fromId = (string)item[0];
@@ -285,7 +286,7 @@ namespace VKTest.Data
                         }
                         if (item.Count() == 7)
                         {
-                                dialog.isFriend = (bool)item[6];
+                            dialog.isFriend = (bool)item[6];
                         }
                         result.Add(dialog);
                     }
@@ -303,6 +304,43 @@ namespace VKTest.Data
                     SetStatus($"Обновление диалогов {login} - НЕ удалось");
                 }
             }
+            return result;
+        }
+        public override List<Message> GetDialog(string id)
+        {
+            List<Message> result = new List<Message>();
+            string s = SendRequest($"https://vk.com/al_im.php?act=a_start&al=1&block=true&gid=0&history=true&msgid=false&peer={id}&prevpeer=0");
+            var rq = processVkResponse(s);
+            var dialog = dialogs.Where(w => w.fromId == id).FirstOrDefault();
+            foreach (var str in rq)
+            {
+                try
+                {
+
+                    JObject jObject = JObject.Parse(str);
+                    dialog.online = (bool)jObject["online"];
+                    foreach (var item in jObject["msgs"].Children())
+                    {
+                        Message message = new Message();
+                        message.id = (int)((JObject)item[0]);
+                        if ((int)item[0][1] == 0)
+                            message.incoming = true;
+                        else
+                            message.incoming = false;
+                        message.idContact = (int)item[0][2];
+                        message.date = UnixTimeStampToDateTime((double)item[0][3]);
+                        message.msg = (string)item[0][5];
+                        result.Add(message);
+                    }
+                    SetStatus($"Обновление диалога с {dialog.fromNickName} - прошло успешно");
+                    //return result;
+                }
+                catch (Exception e)
+                {
+                    SetStatus($"Обновление диалога с {dialog.fromNickName} - НЕ удалось");
+                }
+            }
+            dialog.messages = result;
             return result;
         }
     }
