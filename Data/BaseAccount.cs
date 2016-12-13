@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using xNet;
 using System.Drawing;
 using static DevExpress.XtraPrinting.Native.ExportOptionsPropertiesNames;
+using System.Text.RegularExpressions;
 
 namespace VKTest.Data
 {
@@ -157,7 +158,7 @@ namespace VKTest.Data
                 _status = value;
             }
         }
-        string _status;
+        string _status = "";
         public string pass
         {
             get
@@ -249,7 +250,7 @@ namespace VKTest.Data
             throw new NotImplementedException();
         }
 
-        public List<Dialog> GetDialogs()
+        public virtual List<Dialog> GetDialogs()
         {
             throw new NotImplementedException();
         }
@@ -383,6 +384,40 @@ namespace VKTest.Data
         private static string CleanFileName(string fileName)
         {
             return Path.GetInvalidFileNameChars().Aggregate(fileName, (current, c) => current.Replace(c.ToString(), string.Empty));
+        }
+        public void SetStatus(string msg)
+        {
+            if (_status == null || _status == "")
+                _status = "Последние события анкеты: ";
+            int numLines = _status.Length - _status.Replace(Environment.NewLine, string.Empty).Length;
+            string output = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString() + " "+
+                msg;
+            
+            if (numLines <= 3)
+            {
+                _status += Environment.NewLine + output;
+                return;
+            }
+            _status = "Последние события анкеты: " + Environment.NewLine + (TakeLastLines(_status, 1))[0] + Environment.NewLine + output;
+        }
+        /// <summary>
+        /// Возвращает n последних строк
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        private static List<string> TakeLastLines(string text, int count)
+        {
+            List<string> lines = new List<string>();
+            Match match = Regex.Match(text, "^.*$", RegexOptions.Multiline | RegexOptions.RightToLeft);
+
+            while (match.Success && lines.Count < count)
+            {
+                lines.Insert(0, match.Value);
+                match = match.NextMatch();
+            }
+
+            return lines;
         }
     }
 }

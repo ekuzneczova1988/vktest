@@ -29,10 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colstatus;
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageAccounts = new DevExpress.XtraTab.XtraTabPage();
             this.gridControlAccounts = new DevExpress.XtraGrid.GridControl();
@@ -55,7 +60,6 @@
             this.colenabled = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colcountersLimitDate = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.colstatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.xtraTabPageMessaging = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPageEvents = new DevExpress.XtraTab.XtraTabPage();
@@ -64,6 +68,8 @@
             this.simpleButtonIdea = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonPlay = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonStop = new DevExpress.XtraEditors.SimpleButton();
+            colstatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMain)).BeginInit();
             this.xtraTabControlMain.SuspendLayout();
             this.xtraTabPageAccounts.SuspendLayout();
@@ -76,6 +82,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             this.SuspendLayout();
             // 
+            // colstatus
+            // 
+            colstatus.AppearanceCell.Options.UseTextOptions = true;
+            colstatus.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.Character;
+            colstatus.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            colstatus.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
+            colstatus.Caption = "Статус";
+            colstatus.ColumnEdit = this.repositoryItemMemoEdit1;
+            colstatus.FieldName = "status";
+            colstatus.Name = "colstatus";
+            colstatus.OptionsColumn.ReadOnly = true;
+            colstatus.RowCount = 2;
+            colstatus.RowIndex = 1;
+            colstatus.Visible = true;
+            colstatus.Width = 523;
+            // 
+            // repositoryItemMemoEdit1
+            // 
+            this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
+            this.repositoryItemMemoEdit1.ReadOnly = true;
+            this.repositoryItemMemoEdit1.WordWrap = false;
+            // 
             // xtraTabControlMain
             // 
             this.xtraTabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -84,7 +112,7 @@
             this.xtraTabControlMain.Location = new System.Drawing.Point(0, 90);
             this.xtraTabControlMain.Name = "xtraTabControlMain";
             this.xtraTabControlMain.SelectedTabPage = this.xtraTabPageAccounts;
-            this.xtraTabControlMain.Size = new System.Drawing.Size(627, 357);
+            this.xtraTabControlMain.Size = new System.Drawing.Size(634, 351);
             this.xtraTabControlMain.TabIndex = 0;
             this.xtraTabControlMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageAccounts,
@@ -96,7 +124,7 @@
             this.xtraTabPageAccounts.Controls.Add(this.gridControlAccounts);
             this.xtraTabPageAccounts.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPageAccounts.Image")));
             this.xtraTabPageAccounts.Name = "xtraTabPageAccounts";
-            this.xtraTabPageAccounts.Size = new System.Drawing.Size(621, 326);
+            this.xtraTabPageAccounts.Size = new System.Drawing.Size(628, 320);
             this.xtraTabPageAccounts.Text = "Анкеты";
             // 
             // gridControlAccounts
@@ -115,8 +143,9 @@
             this.repositoryItemImageEdit1,
             this.repositoryItemPictureEdit1,
             this.repositoryItemCheckEdit1,
-            this.buttonSetTask});
-            this.gridControlAccounts.Size = new System.Drawing.Size(621, 326);
+            this.buttonSetTask,
+            this.repositoryItemMemoEdit1});
+            this.gridControlAccounts.Size = new System.Drawing.Size(628, 320);
             this.gridControlAccounts.TabIndex = 0;
             this.gridControlAccounts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAccounts});
@@ -142,15 +171,17 @@
             this.coltask,
             this.colenabled,
             this.colcountersLimitDate,
-            this.colstatus,
+            colstatus,
             this.colButtonSetTask});
-            this.gridViewAccounts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFullFocus;
+            this.gridViewAccounts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridViewAccounts.GridControl = this.gridControlAccounts;
             this.gridViewAccounts.Name = "gridViewAccounts";
             this.gridViewAccounts.OptionsView.ColumnAutoWidth = true;
             this.gridViewAccounts.OptionsView.ShowColumnHeaders = false;
             this.gridViewAccounts.OptionsView.ShowDetailButtons = false;
-            this.gridViewAccounts.RowHeight = 2;
+            this.gridViewAccounts.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.gridViewAccounts.OptionsView.ShowGroupPanel = false;
+            this.gridViewAccounts.OptionsView.ShowIndicator = false;
             // 
             // gridBand1
             // 
@@ -159,7 +190,7 @@
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.OptionsBand.FixedWidth = true;
             this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 45;
+            this.gridBand1.Width = 75;
             // 
             // colavatar
             // 
@@ -173,7 +204,6 @@
             this.colavatar.OptionsColumn.AllowSize = false;
             this.colavatar.OptionsColumn.FixedWidth = true;
             this.colavatar.Visible = true;
-            this.colavatar.Width = 45;
             // 
             // repositoryItemPictureEdit1
             // 
@@ -182,10 +212,11 @@
             this.repositoryItemPictureEdit1.ReadOnly = true;
             this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.repositoryItemPictureEdit1.ZoomAccelerationFactor = 1D;
+            this.repositoryItemPictureEdit1.ZoomPercent = 150D;
             // 
             // gridBandMain
             // 
-            this.gridBandMain.Caption = "Аккаунты";
+            this.gridBandMain.Caption = "Общая информация";
             this.gridBandMain.Columns.Add(this.collogin);
             this.gridBandMain.Columns.Add(this.colpass);
             this.gridBandMain.Columns.Add(this.colcookie);
@@ -197,10 +228,10 @@
             this.gridBandMain.Columns.Add(this.coltask);
             this.gridBandMain.Columns.Add(this.colenabled);
             this.gridBandMain.Columns.Add(this.colcountersLimitDate);
-            this.gridBandMain.Columns.Add(this.colstatus);
+            this.gridBandMain.Columns.Add(colstatus);
             this.gridBandMain.Name = "gridBandMain";
             this.gridBandMain.VisibleIndex = 1;
-            this.gridBandMain.Width = 558;
+            this.gridBandMain.Width = 523;
             // 
             // collogin
             // 
@@ -229,6 +260,8 @@
             // 
             // collink
             // 
+            this.collink.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.collink.AppearanceCell.Options.UseFont = true;
             this.collink.Caption = "Ссылка";
             this.collink.FieldName = "link";
             this.collink.Name = "collink";
@@ -239,13 +272,15 @@
             // 
             // colnickName
             // 
+            this.colnickName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            this.colnickName.AppearanceCell.Options.UseFont = true;
             this.colnickName.Caption = "Имя";
             this.colnickName.FieldName = "nickName";
             this.colnickName.Name = "colnickName";
             this.colnickName.OptionsColumn.AllowEdit = false;
             this.colnickName.OptionsColumn.ReadOnly = true;
             this.colnickName.Visible = true;
-            this.colnickName.Width = 258;
+            this.colnickName.Width = 193;
             // 
             // colButtonSetTask
             // 
@@ -254,14 +289,23 @@
             this.colButtonSetTask.Name = "colButtonSetTask";
             this.colButtonSetTask.OptionsColumn.FixedWidth = true;
             this.colButtonSetTask.Visible = true;
-            this.colButtonSetTask.Width = 120;
+            this.colButtonSetTask.Width = 150;
             // 
             // buttonSetTask
             // 
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            serializableAppearanceObject1.Options.UseFont = true;
+            serializableAppearanceObject2.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            serializableAppearanceObject2.Options.UseFont = true;
+            serializableAppearanceObject3.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject3.Options.UseFont = true;
+            serializableAppearanceObject4.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject4.Options.UseFont = true;
             this.buttonSetTask.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Наcтроить задания", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleLeft, ((System.Drawing.Image)(resources.GetObject("buttonSetTask.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Наcтроить задания", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleLeft, ((System.Drawing.Image)(resources.GetObject("buttonSetTask.Buttons"))), "", new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, true)});
             this.buttonSetTask.Name = "buttonSetTask";
             this.buttonSetTask.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.buttonSetTask.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonSetTask_ButtonClick);
             // 
             // coltask
             // 
@@ -292,17 +336,6 @@
             this.colcountersLimitDate.FieldName = "countersLimitDate";
             this.colcountersLimitDate.Name = "colcountersLimitDate";
             // 
-            // colstatus
-            // 
-            this.colstatus.Caption = "Статус";
-            this.colstatus.FieldName = "status";
-            this.colstatus.Name = "colstatus";
-            this.colstatus.OptionsColumn.AllowEdit = false;
-            this.colstatus.OptionsColumn.ReadOnly = true;
-            this.colstatus.RowIndex = 1;
-            this.colstatus.Visible = true;
-            this.colstatus.Width = 558;
-            // 
             // repositoryItemImageEdit1
             // 
             this.repositoryItemImageEdit1.AutoHeight = false;
@@ -316,14 +349,14 @@
             // 
             this.xtraTabPageMessaging.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPageMessaging.Image")));
             this.xtraTabPageMessaging.Name = "xtraTabPageMessaging";
-            this.xtraTabPageMessaging.Size = new System.Drawing.Size(621, 326);
+            this.xtraTabPageMessaging.Size = new System.Drawing.Size(628, 320);
             this.xtraTabPageMessaging.Text = "Сообщения";
             // 
             // xtraTabPageEvents
             // 
             this.xtraTabPageEvents.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPageEvents.Image")));
             this.xtraTabPageEvents.Name = "xtraTabPageEvents";
-            this.xtraTabPageEvents.Size = new System.Drawing.Size(621, 326);
+            this.xtraTabPageEvents.Size = new System.Drawing.Size(628, 320);
             this.xtraTabPageEvents.Text = "События";
             // 
             // simpleButtonAddAccount
@@ -355,7 +388,7 @@
             this.simpleButtonIdea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButtonIdea.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonIdea.Image")));
             this.simpleButtonIdea.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonIdea.Location = new System.Drawing.Point(546, 12);
+            this.simpleButtonIdea.Location = new System.Drawing.Point(553, 12);
             this.simpleButtonIdea.Name = "simpleButtonIdea";
             this.simpleButtonIdea.Size = new System.Drawing.Size(70, 70);
             this.simpleButtonIdea.TabIndex = 3;
@@ -390,19 +423,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 447);
+            this.ClientSize = new System.Drawing.Size(634, 441);
             this.Controls.Add(this.simpleButtonStop);
             this.Controls.Add(this.simpleButtonPlay);
             this.Controls.Add(this.simpleButtonIdea);
             this.Controls.Add(this.simpleButtonDell);
             this.Controls.Add(this.simpleButtonAddAccount);
             this.Controls.Add(this.xtraTabControlMain);
+            this.MinimumSize = new System.Drawing.Size(650, 480);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Load += new System.EventHandler(this.FormMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMain)).EndInit();
             this.xtraTabControlMain.ResumeLayout(false);
             this.xtraTabPageAccounts.ResumeLayout(false);
@@ -443,12 +477,12 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn coltask;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colenabled;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colcountersLimitDate;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colstatus;
         private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colButtonSetTask;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit buttonSetTask;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandMain;
     }

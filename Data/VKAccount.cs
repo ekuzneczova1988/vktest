@@ -47,11 +47,13 @@ namespace VKTest.Data
                     }
                     catch
                     {
+                        SetStatus($"Авторизация {login} - не удалось отправить запрос");
                         return false;
                     }
                     Captcha_sid = LinkAnswer.Substring("sid=", "&");
                     if (Captcha_sid != "")
                     {
+                        SetStatus($"Авторизация {login} - встретили капчу");
                         try
                         {
                             byte[] bmpData = new WebClient().DownloadData("http://vk.com/captcha.php?sid=" + Captcha_sid);
@@ -75,10 +77,12 @@ namespace VKTest.Data
                 }
                 if (LinkAnswer.IndexOf("blocked") != -1)
                 {
+                    SetStatus($"Аккаунт {login} - заблокирован");
                     return false;
                 }
                 if (LinkAnswer.IndexOf("email") != -1)
                 {
+                    SetStatus($"Авторизация {login} - ошибка почты");
                     return false;
                 }
                 if (LinkAnswer.IndexOf("security_check") != -1)
@@ -121,9 +125,11 @@ namespace VKTest.Data
                 if (ReturnCookies.ToString().IndexOf("sid") != -1)
                 {
                     SetCookie(ReturnCookies);
+                    SetStatus($"Авторизация {login} - прошла успешно");
                     return true;
                 }
             }
+            SetStatus($"Авторизация {login} - НЕ удалось");
             return false;
         }
         public override bool UpdateAccountInfo()
@@ -131,19 +137,22 @@ namespace VKTest.Data
             long CurrentTimestamp = (long)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds;
             string s = SendRequest($"https://vk.com/al_im.php?act=a_get_fast_chat&al=1");// &cache_time={CurrentTimestamp}
             var rq = processVkResponse(s);
-            foreach(var str in rq)
+            foreach (var str in rq)
             {
                 try
                 {
                     JObject jObject = Newtonsoft.Json.Linq.JObject.Parse(str);
                     nickName = (string)jObject["me"]["name"];
-                    link = "vk.com"+(string)jObject["me"]["link"];
-                    string linkToAvatar= (string)jObject["me"]["photo"];
+                    link = "vk.com" + (string)jObject["me"]["link"];
+                    string linkToAvatar = (string)jObject["me"]["photo"];
                     avatar = LoadPicture(linkToAvatar);
+                    SetStatus($"Обновление основных данных {login} - прошло успешно");
                     return true;
                 }
-                catch (Exception e) 
-                { }
+                catch (Exception e)
+                {
+                    SetStatus($"Обновление основных данных {login} - НЕ удалось");
+                }
             }
             return false;
         }
@@ -241,6 +250,58 @@ namespace VKTest.Data
                 }
                 //else
                 //    result.Add(s);
+            }
+            return result;
+        }
+
+        public override List<Dialog> GetDialogs()
+        {
+            List<Dialog> result = new List<Dialog>();
+            string s = SendRequest("https://vk.com/al_im.php?act=a_dialogs_preload&al=1&gid=0");
+            var rq = processVkResponse(s);
+            foreach (var str in rq)
+            {
+                try
+                {
+                    Dialog dialog = new Dialog();
+                    JArray jArray = JArray.Parse(str);
+                    foreach (var item in jArray)
+                    {
+                        if (item.Count() >= 6)
+                        {
+                            dialog.fromId = (string)item[0];
+                            dialog.fromNickName = (string)item[1];
+                            if (item[2].Count() == 0)
+                                dialog.linkToAvatar = (string)item[2];
+                            else
+                                dialog.linkToAvatar = (string)item[2][0];
+
+                            dialog.secuenceNumber = (int)item[3];
+                            dialog.linkToProfile = (string)item[4];
+                            if ((int)item[5] == 0)
+                                dialog.online = false;
+                            else
+                                dialog.online = true;
+                        }
+                        if (item.Count() == 7)
+                        {
+                                dialog.isFriend = (bool)item[6];
+                        }
+                        result.Add(dialog);
+                    }
+                    if (result.Count > 0)
+                        dialogs = result;
+                    //nickName = (string)jObject["me"]["name"];
+                    //link = "vk.com" + (string)jObject["me"]["link"];
+                    //string linkToAvatar = (string)jObject["me"]["photo"];
+                    //avatar = LoadPicture(linkToAvatar);
+                    SetStatus($"Обновление диалогов {login} - прошло успешно");
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    SetStatus($"Обновление диалогов {login} - НЕ удалось");
+                }
             }
             return result;
         }

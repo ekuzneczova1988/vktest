@@ -44,16 +44,11 @@ namespace VKTest
             //FormLogin fl = new FormLogin();
             //fl.ShowDialog();
             if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}ACCOUNTS\\"))
-            foreach(var file in Directory.GetFiles($"{AppDomain.CurrentDomain.BaseDirectory}ACCOUNTS\\"))
-            {
-                accounts.Add((BaseAccount)BaseAccount.Open(file));
-            }
+                foreach (var file in Directory.GetFiles($"{AppDomain.CurrentDomain.BaseDirectory}ACCOUNTS\\"))
+                {
+                    accounts.Add((BaseAccount)BaseAccount.Open(file));
+                }
             gridControlAccounts.DataSource = accounts;
-        }
-
-        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
         }
 
         private void simpleButtonAddAccount_Click(object sender, EventArgs e)
@@ -69,6 +64,17 @@ namespace VKTest
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             SplashScreenManager.ShowForm(typeof(WaitFormMain));
+            string path = $"{AppDomain.CurrentDomain.BaseDirectory}ACCOUNTS\\";
+            DirectoryInfo di = new DirectoryInfo(path);
+            foreach (FileInfo file in di.GetFiles())
+            {
+                try
+                {
+                    file.Delete();
+                }
+                catch
+                { }
+            }
             foreach (var account in accounts)
             {
                 account.Save(account);
@@ -78,6 +84,13 @@ namespace VKTest
 
         private void simpleButtonDell_Click(object sender, EventArgs e)
         {
+            if (gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle) == null)
+                return;
+            if (MessageBox.Show("Удалить анкету?", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                accounts.Remove((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle));
+                gridViewAccounts.DeleteRow(gridViewAccounts.FocusedRowHandle);
+            }
         }
 
         private void simpleButtonPlay_Click(object sender, EventArgs e)
@@ -85,7 +98,14 @@ namespace VKTest
             var t = (BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle);
             if (t == null)
                 return;
-            t.UpdateAccountInfo();
+            t.GetDialogs();
+        }
+
+        private void buttonSetTask_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var item = (BaseAccount)gridViewAccounts.GetFocusedRow();
+            item.SetStatus("настраивали задание");
+            gridControlAccounts.RefreshDataSource();
         }
     }
 }
