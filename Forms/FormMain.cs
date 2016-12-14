@@ -110,6 +110,8 @@ namespace VKTest
 
         private void gridViewAccounts_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            if (((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)) == null)
+                return;
             gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs.
                 OrderByDescending(o=>o.secuenceNumber);
         }
@@ -140,8 +142,6 @@ namespace VKTest
         {
             var t = (BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle);
             if (t == null)
-                return;
-            if ((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle) == null)
                 return;
             t.GetDialogs();
             gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs.
