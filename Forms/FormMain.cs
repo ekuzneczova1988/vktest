@@ -98,7 +98,7 @@ namespace VKTest
             var t = (BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle);
             if (t == null)
                 return;
-            t.GetDialog(((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle)).fromId);
+            t.CheckMessage();
         }
 
         private void buttonSetTask_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -112,6 +112,40 @@ namespace VKTest
         {
             gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs.
                 OrderByDescending(o=>o.secuenceNumber);
+        }
+
+        private void gridViewDialogs_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            gridControlMessages.DataSource = ((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle)).messages;
+        }
+
+        private void gridControlMessages_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButtonUpdateMessages_Click(object sender, EventArgs e)
+        {
+            var t = (BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle);
+            if (t == null)
+                return;
+            if ((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle) == null)
+                return;
+            var x = t.GetDialog(((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle)).fromId);
+            gridControlMessages.DataSource = ((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle)).messages;
+            var m = ((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle)).messages;
+        }
+
+        private void simpleButtonUpdateDialogs_Click(object sender, EventArgs e)
+        {
+            var t = (BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle);
+            if (t == null)
+                return;
+            if ((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle) == null)
+                return;
+            t.GetDialogs();
+            gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs.
+                OrderByDescending(o => o.secuenceNumber);
         }
     }
 }

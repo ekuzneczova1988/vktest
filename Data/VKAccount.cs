@@ -288,6 +288,11 @@ namespace VKTest.Data
                         {
                             dialog.isFriend = (bool)item[6];
                         }
+                        // Пробуем перенести ранее загруженные разговоры
+                        var tempMessages = dialogs.Where(w => w.fromId == dialog.fromId).Select(q => q.messages).FirstOrDefault();
+                        if (tempMessages != null)
+                            dialog.messages = tempMessages;
+
                         result.Add(dialog);
                     }
                     if (result.Count > 0)
@@ -296,6 +301,7 @@ namespace VKTest.Data
                     //link = "vk.com" + (string)jObject["me"]["link"];
                     //string linkToAvatar = (string)jObject["me"]["photo"];
                     //avatar = LoadPicture(linkToAvatar);
+
                     SetStatus($"Обновление диалогов {login} - прошло успешно");
                     return result;
                 }
@@ -316,20 +322,24 @@ namespace VKTest.Data
             {
                 try
                 {
-
+                    if (str == "[]")
+                        continue;
                     JObject jObject = JObject.Parse(str);
                     dialog.online = (bool)jObject["online"];
                     foreach (var item in jObject["msgs"].Children())
                     {
+                        Console.WriteLine("Item ID: {0}", item.First()[5]);
                         Message message = new Message();
-                        message.id = (int)((JObject)item[0]);
-                        if ((int)item[0][1] == 0)
-                            message.incoming = true;
-                        else
+                        var sss = item.Values()[3].ToString();
+                        message.id = (int)item.First()[0];
+                        /// 6
+                        if ((int)item.First()[1] == 19 || (int)item.First()[1] == 18)
                             message.incoming = false;
-                        message.idContact = (int)item[0][2];
-                        message.date = UnixTimeStampToDateTime((double)item[0][3]);
-                        message.msg = (string)item[0][5];
+                        else
+                            message.incoming = true;
+                        message.idContact = (int)item.First()[2];
+                        message.date = UnixTimeStampToDateTime((double)item.First()[3]);
+                        message.msg = (string)item.First()[5];
                         result.Add(message);
                     }
                     SetStatus($"Обновление диалога с {dialog.fromNickName} - прошло успешно");
@@ -341,6 +351,73 @@ namespace VKTest.Data
                 }
             }
             dialog.messages = result;
+            return result;
+        }
+        public override void CheckMessage()
+        {
+            string[] authLongPol = GetKeyForLongPol();
+            while (enabled)
+            {
+                string url = $"{authLongPol[0]}/{authLongPol[1]}?act=a_check&key={authLongPol[2]}&mode=202&ts={authLongPol[3]}&version=1&wait=25";
+                using (var get = new HttpRequest())
+                {
+                    Console.WriteLine("Проверяем: {0}", authLongPol[3]);
+                    get.ConnectTimeout = 30000;
+                    get.Cookies = GetCookies();
+                    get.UserAgent = userAgent;
+                    var resp = get.Post(url).ToString();
+                    if (get.Response.StatusCode == xNet.HttpStatusCode.Forbidden)
+                    {
+                        authLongPol = GetKeyForLongPol();
+                        continue;
+                    }
+                    JObject jObject = JObject.Parse(resp);
+                    // Обновляем ts
+                    authLongPol[3] = jObject["ts"].ToString();
+                    foreach (var item in jObject["updates"].Children())
+                    {
+                        Console.WriteLine("Получено сообщение от: {0}", item[0].ToString());
+                        if (item[0].ToString() == "4")
+                            Console.WriteLine("Получено сообщение от: {0}, '{1}'", item[3], item[6]);
+                    }
+                }
+            }
+        }
+        private string[] GetKeyForLongPol()
+        {
+            string[] result = new string[4];
+            string s = SendRequest($"https://vk.com/im").Substring("IM.init({\"id\"", "})");
+            var json = JObject.Parse("{\"id\"" + s + "}");
+            /// unread_dialogs
+            /// unread_cnt
+            /// +url
+            /// +key
+            /// thash
+            /// +ts
+            /// +lhost
+            /// unread_dialogs
+            result[0] = json["lhost"].ToString();
+            result[1] = json["url"].ToString();
+            result[2] = json["key"].ToString();
+            result[3] = json["ts"].ToString();
+            return result;
+        }
+        public override string SendRequest(string req)
+        {
+            string result = "";
+            using (var get = new HttpRequest())
+            {
+                get.Cookies = GetCookies();
+                get.UserAgent = userAgent;
+                var resp = get.Post(req).ToString();
+                if (resp.IndexOf("<!>3<!>") > -1 || resp.IndexOf("<div id=\"login_message\"><div class=\"msg info_msg\"><div class=\"msg_text\">") > -1)
+                {
+                    Auth();
+                    get.Cookies = GetCookies();
+                    resp = get.Post(req).ToString();
+                }
+                result = resp.ToString();//.Substring("<!json>", "-->"); 1})
+            }
             return result;
         }
     }

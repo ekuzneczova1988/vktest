@@ -240,7 +240,7 @@ namespace VKTest.Data
         {
             throw new NotImplementedException();
         }
-        public int CheckMessage()
+        public virtual void CheckMessage()
         {
             throw new NotImplementedException();
         }
@@ -351,17 +351,9 @@ namespace VKTest.Data
                 return null;
             }
         }
-        public string SendRequest(string req)
+        public virtual string SendRequest(string req)
         {
-            string result = "";
-            using (var get = new HttpRequest())
-            {
-                get.Cookies = GetCookies();
-                get.UserAgent = userAgent;
-                var resp = get.Post(req).ToString();
-                result = resp.ToString();//.Substring("<!json>", "-->");
-            }
-            return result;
+            throw new NotImplementedException();
         }
         public CookieDictionary GetCookies()
         {

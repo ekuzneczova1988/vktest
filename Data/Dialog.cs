@@ -20,6 +20,7 @@ namespace VKTest.Data
         public bool isFriend { get; set; }
         public int secuenceNumber { get; set; }
         public int unreadMsg { get; set; }
+        public string lastMessage { get; set; }
         public List<Message> messages = new List<Message>();
     }
 }
