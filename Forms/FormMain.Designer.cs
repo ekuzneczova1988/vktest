@@ -28,25 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colstatus;
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageAccounts = new DevExpress.XtraTab.XtraTabPage();
             this.gridControlAccounts = new DevExpress.XtraGrid.GridControl();
-            this.baseAccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.baseAccountBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewAccounts = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colavatar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
-            this.gridBandMain = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.collogin = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colpass = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colcookie = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -67,7 +65,7 @@
             this.simpleButtonUpdateMessages = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonUpdateDialogs = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlMessages = new DevExpress.XtraGrid.GridControl();
-            this.messageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.messageBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewMessages = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colid = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -80,7 +78,7 @@
             this.colmsg = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemMemoEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridControlDialogs = new DevExpress.XtraGrid.GridControl();
-            this.dialogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dialogBindingSource = new System.Windows.Forms.BindingSource();
             this.gridViewDialogs = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.collinkToAvatar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -99,6 +97,10 @@
             this.simpleButtonIdea = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonPlay = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonStop = new DevExpress.XtraEditors.SimpleButton();
+            this.colOpenBrowser = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.buttonEditOpenBrowser = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBandMain = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             colstatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMain)).BeginInit();
@@ -123,6 +125,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDialogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditOpenBrowser)).BeginInit();
             this.SuspendLayout();
             // 
             // colstatus
@@ -174,11 +177,11 @@
             // 
             this.gridControlAccounts.DataSource = this.baseAccountBindingSource;
             this.gridControlAccounts.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode3.RelationName = "blackList";
-            gridLevelNode4.RelationName = "dialogs";
+            gridLevelNode1.RelationName = "blackList";
+            gridLevelNode2.RelationName = "dialogs";
             this.gridControlAccounts.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode3,
-            gridLevelNode4});
+            gridLevelNode1,
+            gridLevelNode2});
             this.gridControlAccounts.Location = new System.Drawing.Point(0, 0);
             this.gridControlAccounts.MainView = this.gridViewAccounts;
             this.gridControlAccounts.Name = "gridControlAccounts";
@@ -187,7 +190,8 @@
             this.repositoryItemPictureEdit1,
             this.repositoryItemCheckEdit1,
             this.buttonSetTask,
-            this.repositoryItemMemoEdit1});
+            this.repositoryItemMemoEdit1,
+            this.buttonEditOpenBrowser});
             this.gridControlAccounts.Size = new System.Drawing.Size(628, 320);
             this.gridControlAccounts.TabIndex = 0;
             this.gridControlAccounts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -215,7 +219,8 @@
             this.colenabled,
             this.colcountersLimitDate,
             colstatus,
-            this.colButtonSetTask});
+            this.colButtonSetTask,
+            this.colOpenBrowser});
             this.gridViewAccounts.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridViewAccounts.GridControl = this.gridControlAccounts;
             this.gridViewAccounts.Name = "gridViewAccounts";
@@ -226,15 +231,6 @@
             this.gridViewAccounts.OptionsView.ShowGroupPanel = false;
             this.gridViewAccounts.OptionsView.ShowIndicator = false;
             this.gridViewAccounts.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewAccounts_FocusedRowChanged);
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Аватар";
-            this.gridBand1.Columns.Add(this.colavatar);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.OptionsBand.FixedWidth = true;
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 75;
             // 
             // colavatar
             // 
@@ -257,25 +253,6 @@
             this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.repositoryItemPictureEdit1.ZoomAccelerationFactor = 1D;
             this.repositoryItemPictureEdit1.ZoomPercent = 150D;
-            // 
-            // gridBandMain
-            // 
-            this.gridBandMain.Caption = "Общая информация";
-            this.gridBandMain.Columns.Add(this.collogin);
-            this.gridBandMain.Columns.Add(this.colpass);
-            this.gridBandMain.Columns.Add(this.colcookie);
-            this.gridBandMain.Columns.Add(this.colproxy);
-            this.gridBandMain.Columns.Add(this.coluserAgent);
-            this.gridBandMain.Columns.Add(this.collink);
-            this.gridBandMain.Columns.Add(this.colnickName);
-            this.gridBandMain.Columns.Add(this.colButtonSetTask);
-            this.gridBandMain.Columns.Add(this.coltask);
-            this.gridBandMain.Columns.Add(this.colenabled);
-            this.gridBandMain.Columns.Add(this.colcountersLimitDate);
-            this.gridBandMain.Columns.Add(colstatus);
-            this.gridBandMain.Name = "gridBandMain";
-            this.gridBandMain.VisibleIndex = 1;
-            this.gridBandMain.Width = 523;
             // 
             // collogin
             // 
@@ -337,16 +314,16 @@
             // 
             // buttonSetTask
             // 
-            serializableAppearanceObject5.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            serializableAppearanceObject2.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            serializableAppearanceObject2.Options.UseFont = true;
+            serializableAppearanceObject3.Font = new System.Drawing.Font("Tahoma", 10.25F);
+            serializableAppearanceObject3.Options.UseFont = true;
+            serializableAppearanceObject4.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject4.Options.UseFont = true;
+            serializableAppearanceObject5.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
             serializableAppearanceObject5.Options.UseFont = true;
-            serializableAppearanceObject6.Font = new System.Drawing.Font("Tahoma", 10.25F);
-            serializableAppearanceObject6.Options.UseFont = true;
-            serializableAppearanceObject7.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject7.Options.UseFont = true;
-            serializableAppearanceObject8.Font = new System.Drawing.Font("Tahoma", 10.25F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject8.Options.UseFont = true;
             this.buttonSetTask.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Наcтроить задания", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleLeft, ((System.Drawing.Image)(resources.GetObject("buttonSetTask.Buttons"))), "", new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Наcтроить задания", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleLeft, ((System.Drawing.Image)(resources.GetObject("buttonSetTask.Buttons"))), "", new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, serializableAppearanceObject5, "", null, null, true)});
             this.buttonSetTask.Name = "buttonSetTask";
             this.buttonSetTask.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.buttonSetTask.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonSetTask_ButtonClick);
@@ -517,6 +494,7 @@
             this.coldate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.coldate.FieldName = "date";
             this.coldate.Name = "coldate";
+            this.coldate.OptionsColumn.AllowEdit = false;
             this.coldate.Visible = true;
             this.coldate.Width = 185;
             // 
@@ -610,6 +588,8 @@
             this.gridViewDialogs.OptionsView.ColumnAutoWidth = true;
             this.gridViewDialogs.OptionsView.ShowBands = false;
             this.gridViewDialogs.OptionsView.ShowColumnHeaders = false;
+            this.gridViewDialogs.OptionsView.ShowDetailButtons = false;
+            this.gridViewDialogs.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.gridViewDialogs.OptionsView.ShowGroupPanel = false;
             this.gridViewDialogs.OptionsView.ShowIndicator = false;
             this.gridViewDialogs.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewDialogs_FocusedRowChanged);
@@ -689,7 +669,6 @@
             this.colisFriend.Name = "colisFriend";
             this.colisFriend.OptionsColumn.FixedWidth = true;
             this.colisFriend.RowIndex = 1;
-            this.colisFriend.Visible = true;
             this.colisFriend.Width = 20;
             // 
             // repositoryItemCheckEdit3
@@ -775,6 +754,52 @@
             this.simpleButtonStop.Text = "Остановить\r\nвсе";
             this.simpleButtonStop.ToolTip = "Добавить новую анкету для работы";
             // 
+            // colOpenBrowser
+            // 
+            this.colOpenBrowser.Caption = "Браузер";
+            this.colOpenBrowser.ColumnEdit = this.buttonEditOpenBrowser;
+            this.colOpenBrowser.Name = "colOpenBrowser";
+            this.colOpenBrowser.OptionsColumn.FixedWidth = true;
+            this.colOpenBrowser.Visible = true;
+            this.colOpenBrowser.Width = 80;
+            // 
+            // buttonEditOpenBrowser
+            // 
+            this.buttonEditOpenBrowser.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEditOpenBrowser.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.buttonEditOpenBrowser.Name = "buttonEditOpenBrowser";
+            this.buttonEditOpenBrowser.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.buttonEditOpenBrowser.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditOpenBrowser_ButtonClick);
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Аватар";
+            this.gridBand1.Columns.Add(this.colavatar);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.OptionsBand.FixedWidth = true;
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 75;
+            // 
+            // gridBandMain
+            // 
+            this.gridBandMain.Caption = "Общая информация";
+            this.gridBandMain.Columns.Add(this.collogin);
+            this.gridBandMain.Columns.Add(this.colpass);
+            this.gridBandMain.Columns.Add(this.colcookie);
+            this.gridBandMain.Columns.Add(this.colproxy);
+            this.gridBandMain.Columns.Add(this.coluserAgent);
+            this.gridBandMain.Columns.Add(this.collink);
+            this.gridBandMain.Columns.Add(this.colnickName);
+            this.gridBandMain.Columns.Add(this.colOpenBrowser);
+            this.gridBandMain.Columns.Add(this.colButtonSetTask);
+            this.gridBandMain.Columns.Add(this.coltask);
+            this.gridBandMain.Columns.Add(this.colenabled);
+            this.gridBandMain.Columns.Add(this.colcountersLimitDate);
+            this.gridBandMain.Columns.Add(colstatus);
+            this.gridBandMain.Name = "gridBandMain";
+            this.gridBandMain.VisibleIndex = 1;
+            this.gridBandMain.Width = 603;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -815,6 +840,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDialogs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditOpenBrowser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -851,8 +877,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colButtonSetTask;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit buttonSetTask;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandMain;
         private DevExpress.XtraGrid.GridControl gridControlMessages;
         private DevExpress.XtraGrid.GridControl gridControlDialogs;
         private System.Windows.Forms.BindingSource dialogBindingSource;
@@ -884,6 +908,10 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonSendMessage;
         private DevExpress.XtraEditors.SimpleButton simpleButtonUpdateMessages;
         private DevExpress.XtraEditors.SimpleButton simpleButtonUpdateDialogs;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandMain;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colOpenBrowser;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit buttonEditOpenBrowser;
     }
 }
 

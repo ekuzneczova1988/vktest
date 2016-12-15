@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraSplashScreen;
+﻿using Awesomium.Core;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,6 +80,8 @@ namespace VKTest
             {
                 account.Save(account);
             }
+            if (WebCore.UpdateState != WebCoreUpdateState.NotUpdating)
+                WebCore.Shutdown();
             SplashScreenManager.CloseForm(false);
         }
 
@@ -112,13 +115,13 @@ namespace VKTest
         {
             if (((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)) == null)
                 return;
-            gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs.
-                OrderByDescending(o=>o.secuenceNumber);
+            gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs;
         }
 
         private void gridViewDialogs_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             gridControlMessages.DataSource = ((Dialog)gridViewDialogs.GetRow(gridViewDialogs.FocusedRowHandle)).messages;
+            gridViewMessages.MakeRowVisible(gridViewMessages.GetRowHandle(gridViewMessages.DataRowCount));
         }
 
         private void gridControlMessages_Click(object sender, EventArgs e)
@@ -144,8 +147,16 @@ namespace VKTest
             if (t == null)
                 return;
             t.GetDialogs();
-            gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs.
-                OrderByDescending(o => o.secuenceNumber);
+            gridControlDialogs.DataSource = ((BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle)).dialogs;
+        }
+
+        private void buttonEditOpenBrowser_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var t = (BaseAccount)gridViewAccounts.GetRow(gridViewAccounts.FocusedRowHandle);
+            if (t == null)
+                return;
+            FormAwesomium fa = new FormAwesomium(t);
+            fa.ShowDialog();
         }
     }
 }

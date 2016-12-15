@@ -85,7 +85,7 @@ namespace VKTest.Data
         {
             get
             {
-                return _dialogs;
+                return _dialogs.OrderByDescending(o=>o.unreadMsg).ThenByDescending(t=>t.secuenceNumber).ToList();
             }
 
             set

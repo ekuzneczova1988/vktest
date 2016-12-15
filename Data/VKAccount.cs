@@ -333,7 +333,7 @@ namespace VKTest.Data
                         var sss = item.Values()[3].ToString();
                         message.id = (int)item.First()[0];
                         /// 6
-                        if ((int)item.First()[1] == 19 || (int)item.First()[1] == 18)
+                        if ((int)item.First()[1] == 19 || (int)item.First()[1] == 18 || (int)item.First()[1] == 50)
                             message.incoming = false;
                         else
                             message.incoming = true;

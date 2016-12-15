@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,26 @@ namespace VKTest.Data
         public int secuenceNumber { get; set; }
         public int unreadMsg { get; set; }
         public string lastMessage { get; set; }
-        public List<Message> messages = new List<Message>();
+        [Display (AutoGenerateField = false)]
+        public List<Message> messages
+        {
+            get
+            {
+                if (_messages == null)
+                    return null;
+                return _messages.OrderBy(o=>o.date).ToList();
+            }
+
+            set
+            {
+                _messages = value;
+            }
+        }
+        public List<Message> _messages = new List<Message>();
+        public Dialog()
+        {
+          //  messages = new List<Message>();
+        }
+
     }
 }
