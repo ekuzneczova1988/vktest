@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colstatus;
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageAccounts = new DevExpress.XtraTab.XtraTabPage();
             this.gridControlAccounts = new DevExpress.XtraGrid.GridControl();
-            this.baseAccountBindingSource = new System.Windows.Forms.BindingSource();
+            this.baseAccountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewAccounts = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colavatar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.gridBandMain = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.collogin = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colpass = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colcookie = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -52,6 +55,8 @@
             this.coluserAgent = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.collink = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colnickName = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colOpenBrowser = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.buttonEditOpenBrowser = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colButtonSetTask = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.buttonSetTask = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.coltask = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -65,7 +70,7 @@
             this.simpleButtonUpdateMessages = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonUpdateDialogs = new DevExpress.XtraEditors.SimpleButton();
             this.gridControlMessages = new DevExpress.XtraGrid.GridControl();
-            this.messageBindingSource = new System.Windows.Forms.BindingSource();
+            this.messageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewMessages = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.colid = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -78,7 +83,7 @@
             this.colmsg = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemMemoEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridControlDialogs = new DevExpress.XtraGrid.GridControl();
-            this.dialogBindingSource = new System.Windows.Forms.BindingSource();
+            this.dialogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewDialogs = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.collinkToAvatar = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -97,10 +102,7 @@
             this.simpleButtonIdea = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonPlay = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonStop = new DevExpress.XtraEditors.SimpleButton();
-            this.colOpenBrowser = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.buttonEditOpenBrowser = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBandMain = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.simpleButtonCollect = new DevExpress.XtraEditors.SimpleButton();
             colstatus = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMain)).BeginInit();
@@ -110,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.baseAccountBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditOpenBrowser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSetTask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
@@ -125,7 +128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDialogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEditOpenBrowser)).BeginInit();
             this.SuspendLayout();
             // 
             // colstatus
@@ -158,7 +160,7 @@
             this.xtraTabControlMain.Location = new System.Drawing.Point(0, 90);
             this.xtraTabControlMain.Name = "xtraTabControlMain";
             this.xtraTabControlMain.SelectedTabPage = this.xtraTabPageAccounts;
-            this.xtraTabControlMain.Size = new System.Drawing.Size(634, 351);
+            this.xtraTabControlMain.Size = new System.Drawing.Size(822, 438);
             this.xtraTabControlMain.TabIndex = 0;
             this.xtraTabControlMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageAccounts,
@@ -170,7 +172,7 @@
             this.xtraTabPageAccounts.Controls.Add(this.gridControlAccounts);
             this.xtraTabPageAccounts.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPageAccounts.Image")));
             this.xtraTabPageAccounts.Name = "xtraTabPageAccounts";
-            this.xtraTabPageAccounts.Size = new System.Drawing.Size(628, 320);
+            this.xtraTabPageAccounts.Size = new System.Drawing.Size(816, 407);
             this.xtraTabPageAccounts.Text = "Анкеты";
             // 
             // gridControlAccounts
@@ -192,7 +194,7 @@
             this.buttonSetTask,
             this.repositoryItemMemoEdit1,
             this.buttonEditOpenBrowser});
-            this.gridControlAccounts.Size = new System.Drawing.Size(628, 320);
+            this.gridControlAccounts.Size = new System.Drawing.Size(816, 407);
             this.gridControlAccounts.TabIndex = 0;
             this.gridControlAccounts.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewAccounts});
@@ -232,6 +234,15 @@
             this.gridViewAccounts.OptionsView.ShowIndicator = false;
             this.gridViewAccounts.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewAccounts_FocusedRowChanged);
             // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Аватар";
+            this.gridBand1.Columns.Add(this.colavatar);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.OptionsBand.FixedWidth = true;
+            this.gridBand1.VisibleIndex = 0;
+            this.gridBand1.Width = 75;
+            // 
             // colavatar
             // 
             this.colavatar.AutoFillDown = true;
@@ -253,6 +264,26 @@
             this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.repositoryItemPictureEdit1.ZoomAccelerationFactor = 1D;
             this.repositoryItemPictureEdit1.ZoomPercent = 150D;
+            // 
+            // gridBandMain
+            // 
+            this.gridBandMain.Caption = "Общая информация";
+            this.gridBandMain.Columns.Add(this.collogin);
+            this.gridBandMain.Columns.Add(this.colpass);
+            this.gridBandMain.Columns.Add(this.colcookie);
+            this.gridBandMain.Columns.Add(this.colproxy);
+            this.gridBandMain.Columns.Add(this.coluserAgent);
+            this.gridBandMain.Columns.Add(this.collink);
+            this.gridBandMain.Columns.Add(this.colnickName);
+            this.gridBandMain.Columns.Add(this.colOpenBrowser);
+            this.gridBandMain.Columns.Add(this.colButtonSetTask);
+            this.gridBandMain.Columns.Add(this.coltask);
+            this.gridBandMain.Columns.Add(this.colenabled);
+            this.gridBandMain.Columns.Add(this.colcountersLimitDate);
+            this.gridBandMain.Columns.Add(colstatus);
+            this.gridBandMain.Name = "gridBandMain";
+            this.gridBandMain.VisibleIndex = 1;
+            this.gridBandMain.Width = 603;
             // 
             // collogin
             // 
@@ -302,6 +333,23 @@
             this.colnickName.OptionsColumn.ReadOnly = true;
             this.colnickName.Visible = true;
             this.colnickName.Width = 193;
+            // 
+            // colOpenBrowser
+            // 
+            this.colOpenBrowser.Caption = "Браузер";
+            this.colOpenBrowser.ColumnEdit = this.buttonEditOpenBrowser;
+            this.colOpenBrowser.Name = "colOpenBrowser";
+            this.colOpenBrowser.OptionsColumn.FixedWidth = true;
+            this.colOpenBrowser.Visible = true;
+            this.colOpenBrowser.Width = 80;
+            // 
+            // buttonEditOpenBrowser
+            // 
+            this.buttonEditOpenBrowser.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEditOpenBrowser.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.buttonEditOpenBrowser.Name = "buttonEditOpenBrowser";
+            this.buttonEditOpenBrowser.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.buttonEditOpenBrowser.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditOpenBrowser_ButtonClick);
             // 
             // colButtonSetTask
             // 
@@ -723,7 +771,7 @@
             this.simpleButtonIdea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButtonIdea.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonIdea.Image")));
             this.simpleButtonIdea.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonIdea.Location = new System.Drawing.Point(553, 12);
+            this.simpleButtonIdea.Location = new System.Drawing.Point(741, 12);
             this.simpleButtonIdea.Name = "simpleButtonIdea";
             this.simpleButtonIdea.Size = new System.Drawing.Size(70, 70);
             this.simpleButtonIdea.TabIndex = 3;
@@ -734,7 +782,7 @@
             // 
             this.simpleButtonPlay.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonPlay.Image")));
             this.simpleButtonPlay.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonPlay.Location = new System.Drawing.Point(246, 12);
+            this.simpleButtonPlay.Location = new System.Drawing.Point(423, 12);
             this.simpleButtonPlay.Name = "simpleButtonPlay";
             this.simpleButtonPlay.Size = new System.Drawing.Size(70, 70);
             this.simpleButtonPlay.TabIndex = 4;
@@ -747,64 +795,30 @@
             this.simpleButtonStop.Enabled = false;
             this.simpleButtonStop.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonStop.Image")));
             this.simpleButtonStop.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButtonStop.Location = new System.Drawing.Point(322, 12);
+            this.simpleButtonStop.Location = new System.Drawing.Point(499, 12);
             this.simpleButtonStop.Name = "simpleButtonStop";
             this.simpleButtonStop.Size = new System.Drawing.Size(70, 70);
             this.simpleButtonStop.TabIndex = 5;
             this.simpleButtonStop.Text = "Остановить\r\nвсе";
             this.simpleButtonStop.ToolTip = "Добавить новую анкету для работы";
             // 
-            // colOpenBrowser
+            // simpleButtonCollect
             // 
-            this.colOpenBrowser.Caption = "Браузер";
-            this.colOpenBrowser.ColumnEdit = this.buttonEditOpenBrowser;
-            this.colOpenBrowser.Name = "colOpenBrowser";
-            this.colOpenBrowser.OptionsColumn.FixedWidth = true;
-            this.colOpenBrowser.Visible = true;
-            this.colOpenBrowser.Width = 80;
-            // 
-            // buttonEditOpenBrowser
-            // 
-            this.buttonEditOpenBrowser.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEditOpenBrowser.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-            this.buttonEditOpenBrowser.Name = "buttonEditOpenBrowser";
-            this.buttonEditOpenBrowser.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.buttonEditOpenBrowser.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditOpenBrowser_ButtonClick);
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Аватар";
-            this.gridBand1.Columns.Add(this.colavatar);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.OptionsBand.FixedWidth = true;
-            this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 75;
-            // 
-            // gridBandMain
-            // 
-            this.gridBandMain.Caption = "Общая информация";
-            this.gridBandMain.Columns.Add(this.collogin);
-            this.gridBandMain.Columns.Add(this.colpass);
-            this.gridBandMain.Columns.Add(this.colcookie);
-            this.gridBandMain.Columns.Add(this.colproxy);
-            this.gridBandMain.Columns.Add(this.coluserAgent);
-            this.gridBandMain.Columns.Add(this.collink);
-            this.gridBandMain.Columns.Add(this.colnickName);
-            this.gridBandMain.Columns.Add(this.colOpenBrowser);
-            this.gridBandMain.Columns.Add(this.colButtonSetTask);
-            this.gridBandMain.Columns.Add(this.coltask);
-            this.gridBandMain.Columns.Add(this.colenabled);
-            this.gridBandMain.Columns.Add(this.colcountersLimitDate);
-            this.gridBandMain.Columns.Add(colstatus);
-            this.gridBandMain.Name = "gridBandMain";
-            this.gridBandMain.VisibleIndex = 1;
-            this.gridBandMain.Width = 603;
+            this.simpleButtonCollect.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCollect.Image")));
+            this.simpleButtonCollect.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.simpleButtonCollect.Location = new System.Drawing.Point(190, 12);
+            this.simpleButtonCollect.Name = "simpleButtonCollect";
+            this.simpleButtonCollect.Size = new System.Drawing.Size(70, 70);
+            this.simpleButtonCollect.TabIndex = 6;
+            this.simpleButtonCollect.Text = "Собрать \r\nаудиторию";
+            this.simpleButtonCollect.ToolTip = "Собрать аудиторию";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 441);
+            this.ClientSize = new System.Drawing.Size(822, 528);
+            this.Controls.Add(this.simpleButtonCollect);
             this.Controls.Add(this.simpleButtonStop);
             this.Controls.Add(this.simpleButtonPlay);
             this.Controls.Add(this.simpleButtonIdea);
@@ -825,6 +839,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.baseAccountBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewAccounts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditOpenBrowser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSetTask)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
@@ -840,7 +855,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDialogs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEditOpenBrowser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -912,6 +926,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBandMain;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colOpenBrowser;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit buttonEditOpenBrowser;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonCollect;
     }
 }
 
